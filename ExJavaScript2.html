@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title>Curso Javascript</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="box"></div>
+        <button onclick="CriaCaixa()">Criar caixas</button>
+    </div>
+
+    <script>
+        function CriaCaixa() {
+            var caixa = document.querySelector('.box');
+            caixa.style.width = 100;
+            caixa.style.height = 100;
+            caixa.style.backgroundColor = '#f00';
+        }
+    </script>
+</body>
+
+</html>
