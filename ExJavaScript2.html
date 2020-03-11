@@ -5,17 +5,53 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="box"></div>
-        <button onclick="CriaCaixa()">Criar caixas</button>
-    </div>
+    <button onclick="CriaCaixa()">Criar caixas</button>
+
+    <input type="text" name="nome">
+    <button onClick="Adicionar()">Adicionar</button>
 
     <script>
+        var btElement = document.querySelector('body');
+
         function CriaCaixa() {
-            var caixa = document.querySelector('.box');
+            var caixa = document.createElement('div');
             caixa.style.width = 100;
             caixa.style.height = 100;
             caixa.style.backgroundColor = '#f00';
+            caixa.style.marginTop = 10;
+            caixa.setAttribute('onmouseover', 'this.style.backgroundColor = GetRandomColor()');
+            btElement.appendChild(caixa);
+        }
+
+        function GetRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+        var lista = document.querySelector('body', 'ul');
+        var inputElement = document.querySelector('input[name=nome');
+
+        for (var x = 0; x < nomes.length; x++) {
+            var item = document.createElement('li');
+            item.textContent = nomes[x];
+            lista.appendChild(item);
+        }
+
+        function Adicionar() {
+            if (inputElement.value != '') {
+                var item = document.createElement('li');
+                var text = inputElement.value;
+                var tam = nomes.length;
+                nomes[tam + 1] = text;
+                item.textContent = nomes[tam + 1]
+                lista.appendChild(item);
+                inputElement.value = "";
+            }
         }
     </script>
 </body>
